@@ -1,14 +1,10 @@
 function changeImage(imageName){
-    document.querySelector('.displayed-img').src =
-    `images/${imageName}`;
+document.querySelector('.displayed-img').src =
+`images/${imageName}`;
 }
-const displayedImage = document.querySelector('.displayed-img');
-const thumbBar = document.querySelector('.thumb-bar');
 
 const btn = document.querySelector('.dark');
 const overlay = document.querySelector('.overlay');
-
-});
 
 btn.addEventListener('click', () => {
 
@@ -21,7 +17,7 @@ if(currentClass === 'dark'){
     btn.textContent = 'Restore Lighting';
 
     overlay.style.backgroundColor =
-        'rgba(0,0,0,0.55)';
+    'rgba(0,0,0,0.55)';
 
 }else{
 
@@ -29,7 +25,7 @@ if(currentClass === 'dark'){
     btn.textContent = 'Gallery Lighting';
 
     overlay.style.backgroundColor =
-        'rgba(0,0,0,0)';
+    'rgba(0,0,0,0)';
 }
 ```
 
@@ -50,10 +46,10 @@ setInterval(() => {
 
 ```
 quoteIndex =
-    (quoteIndex + 1) % quotes.length;
+(quoteIndex + 1) % quotes.length;
 
 document.getElementById('quote').textContent =
-    quotes[quoteIndex];
+quotes[quoteIndex];
 ```
 
 }, 5000);
@@ -63,11 +59,12 @@ document
 .addEventListener('submit', function(e){
 
 ```
-    e.preventDefault();
+e.preventDefault();
 
-    document.getElementById('message').textContent =
-        "Thank you! Your visit request has been received.";
+document.getElementById('message').textContent =
+"Thank you! Your visit request has been received.";
 
-    this.reset();
-});
+this.reset();
 ```
+
+});
