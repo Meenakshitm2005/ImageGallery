@@ -13,28 +13,50 @@ const images = [
   'pic7.jpg'
 ];
 
-images.forEach(image => {
+images.forEach((image, index) => {
+
   const thumb = document.createElement('img');
 
   thumb.src = `images/${image}`;
 
+  if(index === 0){
+    thumb.classList.add('active');
+  }
+
   thumb.addEventListener('click', () => {
+
     displayedImage.src = `images/${image}`;
+
+    document.querySelectorAll('.thumb-bar img')
+      .forEach(img => img.classList.remove('active'));
+
+    thumb.classList.add('active');
   });
 
   thumbBar.appendChild(thumb);
+
 });
 
 btn.addEventListener('click', () => {
+
   const currentClass = btn.getAttribute('class');
 
-  if (currentClass === 'dark') {
-    btn.setAttribute('class', 'light');
+  if(currentClass === 'dark'){
+
+    btn.setAttribute('class','light');
+
     btn.textContent = 'Lighten';
+
     overlay.style.backgroundColor = 'rgba(0,0,0,0.55)';
+
   } else {
-    btn.setAttribute('class', 'dark');
+
+    btn.setAttribute('class','dark');
+
     btn.textContent = 'Darken';
+
     overlay.style.backgroundColor = 'rgba(0,0,0,0)';
+
   }
+
 });
