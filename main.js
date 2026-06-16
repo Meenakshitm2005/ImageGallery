@@ -9,35 +9,33 @@ const images = [
   'pic2.jpg',
   'pic3.jpg',
   'pic4.jpg',
-  'pic5.jpg'
+  'pic5.jpg',
+  'pic6.jpg',
+  'pic7.jpg'
 ];
 
-for(let image of images){
-
+images.forEach(image => {
   const thumb = document.createElement('img');
 
   thumb.src = `images/${image}`;
 
-  thumbBar.appendChild(thumb);
-
   thumb.addEventListener('click', () => {
     displayedImage.src = `images/${image}`;
   });
-}
+
+  thumbBar.appendChild(thumb);
+});
 
 btn.addEventListener('click', () => {
-
   const currentClass = btn.getAttribute('class');
 
-  if(currentClass === 'dark'){
-    btn.setAttribute('class','light');
+  if (currentClass === 'dark') {
+    btn.setAttribute('class', 'light');
     btn.textContent = 'Lighten';
     overlay.style.backgroundColor = 'rgba(0,0,0,0.55)';
-  }
-  else{
-    btn.setAttribute('class','dark');
+  } else {
+    btn.setAttribute('class', 'dark');
     btn.textContent = 'Darken';
     overlay.style.backgroundColor = 'rgba(0,0,0,0)';
   }
-
 });
