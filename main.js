@@ -1,62 +1,103 @@
 const displayedImage = document.querySelector('.displayed-img');
 const thumbBar = document.querySelector('.thumb-bar');
 
-const btn = document.querySelector('button');
+const btn = document.querySelector('.dark');
 const overlay = document.querySelector('.overlay');
 
 const images = [
-  'pic1.jpg',
-  'pic2.jpg',
-  'pic3.jpg',
-  'pic5.jpg',
-  'pic6.jpg',
-  'pic7.jpg'
+'pic1.jpg',
+'pic2.jpg',
+'pic3.jpg',
+'pic5.jpg',
+'pic6.jpg',
+'pic7.jpg'
 ];
 
 images.forEach((image, index) => {
 
-  const thumb = document.createElement('img');
+```
+const thumb = document.createElement('img');
 
-  thumb.src = `images/${image}`;
+thumb.src = `images/${image}`;
 
-  if(index === 0){
+if(index === 0){
     thumb.classList.add('active');
-  }
+}
 
-  thumb.addEventListener('click', () => {
+thumb.addEventListener('click', () => {
 
     displayedImage.src = `images/${image}`;
 
-    document.querySelectorAll('.thumb-bar img')
-      .forEach(img => img.classList.remove('active'));
+    document
+        .querySelectorAll('.thumb-bar img')
+        .forEach(img => img.classList.remove('active'));
 
     thumb.classList.add('active');
-  });
+});
 
-  thumbBar.appendChild(thumb);
+thumbBar.appendChild(thumb);
+```
 
 });
 
 btn.addEventListener('click', () => {
 
-  const currentClass = btn.getAttribute('class');
+```
+const currentClass = btn.getAttribute('class');
 
-  if(currentClass === 'dark'){
+if(currentClass === 'dark'){
 
     btn.setAttribute('class','light');
+    btn.textContent = 'Restore Lighting';
 
-    btn.textContent = 'Lighten';
+    overlay.style.backgroundColor =
+        'rgba(0,0,0,0.55)';
 
-    overlay.style.backgroundColor = 'rgba(0,0,0,0.55)';
-
-  } else {
+}else{
 
     btn.setAttribute('class','dark');
+    btn.textContent = 'Gallery Lighting';
 
-    btn.textContent = 'Darken';
-
-    overlay.style.backgroundColor = 'rgba(0,0,0,0)';
-
-  }
+    overlay.style.backgroundColor =
+        'rgba(0,0,0,0)';
+}
+```
 
 });
+
+const quotes = [
+"Art enables us to find ourselves and lose ourselves at the same time.",
+"Every artist was first an amateur.",
+"Creativity takes courage.",
+"Art is not what you see, but what you make others see.",
+"Painting is poetry that is seen rather than felt.",
+"A work of art is a world in itself."
+];
+
+let quoteIndex = 0;
+
+setInterval(() => {
+
+```
+quoteIndex =
+    (quoteIndex + 1) % quotes.length;
+
+document.getElementById('quote').textContent =
+    quotes[quoteIndex];
+```
+
+}, 5000);
+
+document
+.getElementById('ticketForm')
+.addEventListener('submit', function(e){
+
+```
+    e.preventDefault();
+
+    document.getElementById('message').textContent =
+        "Thank you! Your visit request has been received.";
+
+    this.reset();
+});
+```
